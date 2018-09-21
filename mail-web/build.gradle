@@ -1,0 +1,7 @@
+group 'com.mail'
+version '0.0.1-SNAPSHOT'
+
+dependencies {
+
+    compile project(":mail-core")
+}

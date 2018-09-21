@@ -1,0 +1,4 @@
+rootProject.name = 'life-mail'
+include 'mail-web'
+include 'mail-core'
+

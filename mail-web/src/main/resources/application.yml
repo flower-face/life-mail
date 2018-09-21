@@ -1,0 +1,11 @@
+spring:
+  mail:
+    host: smtp.163.com
+    username: the_zeng@163.com
+    password: tao.zeng.612425
+    default-encoding: UTF-8
+  application:
+    name: life-mail
+
+mail:
+  from: the_zeng@163.com
