@@ -1,5 +1,6 @@
 group 'com.mail'
 version '0.0.1-SNAPSHOT'
+archivesBaseName = 'life-mail-core'
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-mail')

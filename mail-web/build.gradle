@@ -1,7 +1,7 @@
 group 'com.mail'
 version '0.0.1-SNAPSHOT'
+archivesBaseName = 'life-mail-web'
 
 dependencies {
-
     compile project(":mail-core")
 }
