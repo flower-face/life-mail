@@ -1,11 +1,18 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
 spring:
+  application:
+    name: life-mail-web
   mail:
     host: smtp.163.com
     username: the_zeng@163.com
     password: tao.zeng.612425
     default-encoding: UTF-8
-  application:
-    name: life-mail
-
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/life-mail?autoReconnect=true&useUnicode=true&characterEncoding:UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
 mail:
   from: the_zeng@163.com

@@ -2,6 +2,8 @@ package com.mail.core.service;
 
 /**
  * Created by tao.zeng on 2018/9/21.
+ * <p>
+ * https://gitbook.cn/books/5b99d1111086eb5450229395/index.html
  */
 public interface MailService {
 
@@ -12,5 +14,4 @@ public interface MailService {
     void sendAttachmentsMail(String to, String subject, String content, String filePath);
 
     void sendInlineResourceMail(String to, String subject, String content, String rscPath, String rscId);
-
 }

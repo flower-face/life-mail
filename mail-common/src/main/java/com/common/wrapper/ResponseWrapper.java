@@ -1,23 +1,24 @@
-package com.mail.core.wrapper;
+package com.common.wrapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
- * Created by tao.zeng on 2018/9/21.
+ * Created by tao.zeng on 2018/9/22.
  */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResponseWrapper {
+public class ResponseWrapper<T> implements Serializable {
 
     private int code;
 
     private String message;
 
-    private Object data;
-
+    private T data;
 }
