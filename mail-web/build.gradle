@@ -6,7 +6,7 @@ bootJar.classifier = "bootJar"
 
 dependencies {
     compile project(":mail-core")
-    compile project(":mail-common")
+    compile project(":common")
     compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.0.3'
     compile('mysql:mysql-connector-java')
 }

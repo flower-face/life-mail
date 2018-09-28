@@ -1,5 +1,5 @@
 rootProject.name = 'life-mail'
 include 'mail-core'
 include 'mail-web'
-include 'mail-common'
+include 'common'
 
