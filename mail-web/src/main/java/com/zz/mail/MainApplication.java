@@ -8,9 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Created by tao.zeng on 2018/9/21.
  */
-@SpringBootApplication
-@MapperScan("com.zz.mail.mapper")
 @EnableGlobalExceptionHandler
+@MapperScan("com.zz.mail.mapper")
+@SpringBootApplication(scanBasePackages = {"com.zz.common"})
 public class MainApplication {
 
     public static void main(String[] args) {

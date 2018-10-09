@@ -9,7 +9,7 @@ import lombok.Getter;
 public enum StatusCode {
 
     CODE_200(200, "successful!"),
-    CODE_400(400, "param failure."),
+    CODE_400(400, "parameter failure."),
     CODE_404(404, "resources not found."),
     CODE_500(500, "server failure.");
 
