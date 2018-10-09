@@ -1,4 +1,4 @@
-group 'com.mail'
+group 'com.zz.mail'
 version '0.0.1-SNAPSHOT'
 archivesBaseName = 'life-mail-web'
 
@@ -7,8 +7,7 @@ bootJar.classifier = "bootJar"
 dependencies {
     compile project(":mail-core")
     compile project(":common")
-    compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.0.3'
-    compile('mysql:mysql-connector-java')
+
 }
 
 String mainClassName = "com.mail.MainApplication"

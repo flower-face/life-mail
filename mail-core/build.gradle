@@ -1,7 +1,9 @@
-group 'com.mail'
+group 'com.zz.mail'
 version '0.0.1-SNAPSHOT'
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-mail')
+    compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.0.3'
+    compile('mysql:mysql-connector-java')
 }
