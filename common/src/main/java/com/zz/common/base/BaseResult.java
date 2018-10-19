@@ -8,10 +8,10 @@ import com.zz.common.wrapper.ResponseWrapper;
  */
 public interface BaseResult {
 
-    StatusCode CODE_200 = StatusCode.CODE_200;
-    StatusCode CODE_400 = StatusCode.CODE_400;
-    StatusCode CODE_404 = StatusCode.CODE_404;
-    StatusCode CODE_500 = StatusCode.CODE_500;
+    StatusCode CODE_200 = StatusCode.CODE_200,
+            CODE_400 = StatusCode.CODE_400,
+            CODE_404 = StatusCode.CODE_404,
+            CODE_500 = StatusCode.CODE_500;
 
     default ResponseWrapper<Object> result(int code, String message, Object data) {
         return ResponseWrapper.builder().code(code).message(message).data(data).build();
