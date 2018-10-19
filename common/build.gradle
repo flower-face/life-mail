@@ -1,8 +1,0 @@
-group 'com.zz.common'
-version '0.0.1-SNAPSHOT'
-archivesBaseName = 'life-common'
-
-apply from: "./deploy.gradle"
-
-dependencies {
-}
