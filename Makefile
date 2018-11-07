@@ -10,6 +10,10 @@ daemon:
 clean:
 	./gradlew clean
 
+.PHONY: clear
+clear:
+	./gradlew clearPrj
+
 .PHONY: build
 build:
 	./gradlew build

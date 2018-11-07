@@ -1,0 +1,24 @@
+group 'com.zz.mail'
+version '0.0.1-SNAPSHOT'
+archivesBaseName = "life-mail-service"
+
+bootJar.classifier = "bootJar"
+
+buildscript {
+    ext {
+        mybatisPlusVersion = "3.0.5"
+        druidVersion = "1.1.10"
+    }
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-starter-mail')
+    // CodeGenerator
+    implementation "org.freemarker:freemarker:2.3.23"
+    implementation "org.apache.velocity:velocity-engine-core:2.0"
+
+    implementation "com.alibaba:druid-spring-boot-starter:${druidVersion}"
+    implementation "mysql:mysql-connector-java"
+    implementation "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
+}

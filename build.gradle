@@ -1,10 +1,11 @@
-group = 'com.mail'
+group = 'com.zz.mail'
 version = '0.0.1-SNAPSHOT'
 
 buildscript {
     ext {
         springBootVersion = '2.0.5.RELEASE'
         javaVersion = JavaVersion.VERSION_1_8
+        cloudCoreVersion = "0.0.1-SNAPSHOT"
     }
     repositories {
         mavenLocal()
@@ -29,8 +30,9 @@ subprojects {
 
     repositories {
         mavenLocal()
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url "http://localhost:18081/repository/snapshots/" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/" }
         mavenCentral()
     }
 
@@ -46,8 +48,8 @@ subprojects {
         options.addStringOption('charSet', 'UTF-8')
     }
 
-    // 多模块打包需要配置
-    jar.enabled = true
+    // 打包jar
+    // jar.enabled = true
 
     jacoco {
         toolVersion = "0.8.1"
@@ -64,29 +66,39 @@ subprojects {
     // code coverage
     check.dependsOn jacocoTestReport
 
-    configurations.all {
-        // check for updates every build
-        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
-    }
-
-    // JavaDoc utf8
-    tasks.withType(Javadoc) {
-        options.addStringOption('Xdoclint:none', '-quiet')
-        options.addStringOption('encoding', 'UTF-8')
-        options.addStringOption('charSet', 'UTF-8')
-    }
-
     dependencies {
-        compile('org.springframework.boot:spring-boot-starter-web')
-
-        compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
-
-        compile group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
-        compile group: 'com.alibaba', name: 'fastjson', version: '1.2.47'
-
+        implementation("com.zz.cloud:life-cloud-core:${cloudCoreVersion}")
+        implementation('org.springframework.boot:spring-boot-starter-web')
         compileOnly('org.projectlombok:lombok')
-        testCompile group: 'junit', name: 'junit', version: '4.12'
+        testCompile('junit:junit:4.12')
         testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+
+    // 打包zip文件
+    task zip(type: Zip, dependsOn: jar) {
+        // 包含某个目录下面的所有文件
+        from("build/libs", "src/main/resources", "../script", "docker")
+        println("life-${archivesBaseName}-${this.version}.jar")
+        // 排除文件
+        exclude("application-*.yml", "life-${archivesBaseName}-${this.version}.jar", "logback-spring.xml", "README.MD")
+        // 包含文件
+        // include()
+        appendix("archive")
+        into("tools") {
+            from "tools"
+        }
+        into("ios_local") {
+            from "ios_local"
+        }
+        version "${this.version}"
+        baseName "${archivesBaseName}"
+    }
+
+    check.dependsOn(zip)
+
+    // 清理编译以及build文件
+    task clearPrj(type: Delete) {
+        delete "build", "target", "out", "logs", "../logs"
     }
 }
 

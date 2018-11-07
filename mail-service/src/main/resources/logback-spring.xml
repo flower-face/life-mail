@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <!-- 读取spring配置文件中的内容，bootstrap会比application先加载 -->
+    <springProperty scope="context" name="appName" source="spring.application.name"/>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <jmxConfigurator/>
+
+    <!-- 显示 mybatis sql -->
+    <logger name="com.zz.mail.mapper" level="debug"/>
+
+</configuration>
