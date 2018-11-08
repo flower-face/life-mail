@@ -67,7 +67,7 @@ subprojects {
     check.dependsOn jacocoTestReport
 
     dependencies {
-        implementation("com.zz.cloud:life-cloud-core:${cloudCoreVersion}")
+        implementation("com.zz.cloud:life-cloud-core:${cloudCoreVersion}") { changing = true }
         implementation('org.springframework.boot:spring-boot-starter-web')
         compileOnly('org.projectlombok:lombok')
         testCompile('junit:junit:4.12')

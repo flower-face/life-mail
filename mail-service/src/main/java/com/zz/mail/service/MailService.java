@@ -1,6 +1,7 @@
 package com.zz.mail.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zz.mail.dto.MailDTO;
 import com.zz.mail.entity.MailInfoEntity;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,12 @@ import org.springframework.stereotype.Service;
 @Service
 public interface MailService extends IService<MailInfoEntity> {
 
-    void sendSimpleMail(String to, String subject, String content);
+    /**
+     * 发送文本邮件
+     *
+     * @param mail 邮件对象
+     */
+    void sendSimpleMail(MailDTO mail);
 
     void sendHtmlMail(String to, String subject, String content);
 

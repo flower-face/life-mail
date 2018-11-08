@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Created by tao.zeng on 2018/9/21.
  */
-@SpringBootApplication
 @EnableHttpLoggerAspect
 @EnableGlobalExceptionHandler
 @MapperScan("com.zz.mail.mapper")
+@SpringBootApplication(scanBasePackages = {"com.zz.mail", "com.zz.cloud.core"})
 public class MailServiceApplication {
 
     public static void main(String[] args) {

@@ -2,18 +2,14 @@ package com.zz.mail.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.zz.mail.base.BaseEntity;
+import com.zz.cloud.core.persistent.mybatisplus.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
+import java.util.List;
 
 /**
- * <p>
- *
- * </p>
- *
  * @author tao.zeng
  * @since 2018-11-07
  */
@@ -34,25 +30,23 @@ public class MailInfoEntity extends BaseEntity<MailInfoEntity> {
     /**
      * 邮件主题
      */
-    @TableField("mail_subject")
-    private String mailSubject;
+    @TableField("subject")
+    private String subject;
 
     /**
      * 邮件内容
      */
-    @TableField("mail_content")
-    private String mailContent;
+    @TableField("content")
+    private String content;
 
     /**
-     * 附件地址
+     * 邮件类型，sample、html、attachments、resource
+     *
+     * @see com.zz.mail.enums.MailEnum
      */
-    @TableField("file_path")
-    private String filePath;
+    @TableField("classify")
+    private String classify;
 
-
-    @Override
-    protected Serializable pkVal() {
-        return getId();
-    }
-
+    @TableField(exist = false)
+    private List<MailAttachmentEntity> attachments;
 }

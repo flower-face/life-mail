@@ -42,7 +42,7 @@
 //
 //        // 全局配置
 //        GlobalConfig gc = new GlobalConfig();
-//        String projectPath = System.getProperty("user.dir") + "/mail-service"; // + "/cloud-mybatis-plus"
+//        String projectPath = System.getProperty("user.dir");//+ "/mail-service"; // + "/mail-service"
 //        gc.setOutputDir(projectPath + "/src/main/java");
 //        gc.setAuthor("tao.zeng");
 //        gc.setOpen(false);
@@ -93,14 +93,14 @@
 //        // 策略配置
 //        StrategyConfig strategy = new StrategyConfig();
 //        // 自定义实体，公共字段
-//        strategy.setSuperEntityColumns("id", "created", "updated", "createdBy", "updatedBy", "deleted");
+//        strategy.setSuperEntityColumns("id", "created", "updated", "updated_by", "created_by", "deleted");
 //        strategy.setNaming(NamingStrategy.underline_to_camel);
 //        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-//        strategy.setSuperEntityClass("com.zz.mail.base.BaseEntity");
+//        strategy.setSuperEntityClass("com.zz.cloud.core.persistent.mybatisplus.BaseEntity");
 //        strategy.setEntityLombokModel(true);
 //        strategy.setRestControllerStyle(true);
 //        strategy.setSuperControllerClass("com.zz.mail.base.BaseController");
-//        // strategy.setInclude(scanner("表名"));
+//        // strategy.setInclude(scanBner("表名"));
 //        strategy.entityTableFieldAnnotationEnable(true);
 //        strategy.setControllerMappingHyphenStyle(true);
 //        strategy.setTablePrefix(pc.getModuleName() + "_");
