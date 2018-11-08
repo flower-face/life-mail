@@ -9,9 +9,9 @@ import lombok.Getter;
 public enum MailEnum {
 
     SAMPLE("sample", "简单邮件"),
-    HTML("html", "富文本邮件"),
+    MIME("mime", "富文本邮件"),
     ATTACHMENT("attachment", "带附件邮件"),
-    RESOURCE("resource", "带静态资源邮件");
+    INLINE("inline", "带静态资源邮件");
 
     private String key;
 

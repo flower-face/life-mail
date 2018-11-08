@@ -6,6 +6,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by tao.zeng on 2018/11/4.
@@ -22,5 +23,9 @@ public abstract class BaseController implements BaseResult {
 
     public HttpServletResponse getResponse() {
         return getServletRequestAttributes().getResponse();
+    }
+
+    public HttpSession getSession() {
+        return getRequest().getSession();
     }
 }

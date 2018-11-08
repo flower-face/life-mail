@@ -49,7 +49,7 @@ CREATE TABLE `mail_info` (
   `deleted` int(2) NOT NULL COMMENT '删除标识，0-> 未删除 1->已删除',
   `created_by` bigint(20) NOT NULL COMMENT '创建人',
   `updated_by` bigint(20) NOT NULL COMMENT '修改人',
-  `classify` enum('sample','html','attachment','resource') COLLATE utf8mb4_bin NOT NULL COMMENT '邮件类型，sample、html、attachments、resource',
+  `classify` enum('sample','mime','attachment','inline') COLLATE utf8mb4_bin NOT NULL COMMENT '邮件类型，sample、mime、attachments、inline',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
